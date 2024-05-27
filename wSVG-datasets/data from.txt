@@ -1,7 +1,0 @@
-The MOB data sets are available at https://www.spatialresearch.org/resources-published-datasets/doi-10-1126science-aaf2403/.
-
-The DLPFC data sets are available at https://app.globus.org/file-manager?origin_id=ae756c8c-c211-11ea-8f24-0a21f750d19b&origin_path=%2F151674%2F&two_pane=false.
-
-The RA data sets are available at https://singlecell.broadinstitute.org/single_cell/study/SCP1414/3dst-ra#study-download.
-
-The Mousehippocampal cell data sets are available at  https://www.cell.com/neuron/fulltext/S0896-6273(16)30702-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627316307024%3Fshowall%3Dtrue#supplementaryMaterial.
