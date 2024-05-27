@@ -1,2 +1,3 @@
 # A-spatial-variable-gene-identify-method-based-on-Wasserstein-distance
 In this paper, we propose a method to identify SVGs by comparing the Wasserstein distance between the gene expression distribution and its mean distribution, it is named as wSVG. The accuracy and robustness of our method were validated on 2D and 3D datasets, which included 4 real datasets and 4 computer-generated simulation datasets. 
+All of the real data comes from publicly published datasets. The simulation data comes from our code.
