@@ -1,4 +1,4 @@
-The MOB data sets are available at https://www.spatialomics.org/SpatialDB/download/st 27365449.tar.gz.
+The MOB data sets are available at https://www.spatialresearch.org/resources-published-datasets/doi-10-1126science-aaf2403/.
 
 The DLPFC data sets are available at https://app.globus.org/file-manager?
 origin id=ae756c8c-c211-11ea-8f24-0a21f750d19b&origin path=%2F151674%2F&two pane=false.
