@@ -2,6 +2,7 @@ import numpy as np
 from scipy import  interpolate
 from scipy.stats import wasserstein_distance
 import pandas as pd
+import os
 
 
 def sc_fit(x, expr):
@@ -86,5 +87,7 @@ def run(data, dataset_name):
     # sorted_arr = sorted_arr / max(sorted_arr)
     gene_wd = pd.DataFrame({'gene name': gene_name, 'wass dist': sorted_arr})
     gene_wd = gene_wd.sort_values(by='wass dist')
+    if not os.path.exists('result'):
+        os.makedirs('result')
     gene_wd.to_csv('result/'+dataset_name + '_wd.csv', index = False)
     return gene_wd
