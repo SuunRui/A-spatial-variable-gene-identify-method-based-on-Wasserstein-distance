@@ -1,8 +1,10 @@
-import numpy as np
-from scipy import  interpolate
-from scipy.stats import wasserstein_distance
-import pandas as pd
 import os
+
+import numpy as np
+import pandas as pd
+from scipy import interpolate
+from scipy.stats import wasserstein_distance
+from tqdm import tqdm
 
 
 def sc_fit(x, expr):
@@ -77,12 +79,9 @@ def run(data, dataset_name):
         coordinates = data.iloc[:, :2].values.T
         gene_name = np.array([i for i in data.columns[2:]])
     sorted = list()
-    i = 1
-    for item in expr:
+    for i, item in enumerate(tqdm(expr, desc="Calculating Wasserstein distances")):
         item_Wasserstein_Dist = sc_Wasserstein_Dist(coordinates, item, sc_fit(coordinates, item))
         sorted.append(item_Wasserstein_Dist)
-        print('The calculation of {} genes was completed'.format(i))
-        i += 1
     sorted_arr = np.array(sorted)##Wasserstein_Dist的array
     # sorted_arr = sorted_arr / max(sorted_arr)
     gene_wd = pd.DataFrame({'gene name': gene_name, 'wass dist': sorted_arr})
