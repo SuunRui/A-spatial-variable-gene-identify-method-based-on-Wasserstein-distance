@@ -15,7 +15,7 @@ def calculate_threshold_gene_site(store_sorted):
     norm_a_right: Right side loci
     threshold_gene_site: The order in which the threshold genes are located
     '''
-    svg_dist = store_sorted[:, 1]
+    svg_dist = store_sorted.iloc[:, 1]
     dist_names = ['beta',
             'expon',
             'gamma',
@@ -47,6 +47,6 @@ def calculate_threshold_gene_site(store_sorted):
         threshold_gene_site = np.argwhere(svg_dist >= 0.6)[0][0]
         SVG_numbers = len(svg_dist) - threshold_gene_site
     print('gene_number: {}\nthreshold_gene_site: {}\nSVG_numbers: {}'.format(len(svg_dist), threshold_gene_site, SVG_numbers))
-    SVGs = store_sorted[threshold_gene_site:, :]
+    SVGs = store_sorted.iloc[threshold_gene_site:, :]
     return threshold_gene_site, SVG_numbers, SVGs
 # threshold_gene_site, SVG_numbers = calculate_threshold_gene_site(svg_dist)
