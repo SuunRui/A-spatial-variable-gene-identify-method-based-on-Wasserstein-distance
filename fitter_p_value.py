@@ -21,8 +21,8 @@ def calculate_threshold_gene_site(store_sorted):
                 'norm',
                 'geninvgauss',
                 'erlang']
-    wass_dist = store_sorted.values
-    f = Fitter(wass_dist[:, 1], distributions= dist_names, timeout =100)  # 创建Fitter类
+    wass_dist = store_sorted.iloc[:, 1]
+    f = Fitter(wass_dist, distributions= dist_names, timeout =100)  # 创建Fitter类
     f.fit()  # 调用fit函数拟合分布
     f.summary()   #返回排序好的分布拟合质量（拟合效果从好到坏）,并绘制数据分布
     print(f.df_errors) #返回这些分布的拟合质量（均方根误差的和）
@@ -33,11 +33,11 @@ def calculate_threshold_gene_site(store_sorted):
         best_distri_name = item
     fitted_param = f.fitted_param[best_distri_name]
     print('best_distri: {}'.format(best_distri_name))
-    cdf_value = stats.__getattribute__(best_distri_name).cdf(wass_dist[:, 1], *fitted_param)
+    cdf_value = stats.__getattribute__(best_distri_name).cdf(wass_dist, *fitted_param)
     p_value = 1 - cdf_value
     SVG_numbers = len(np.where(p_value<0.05)[0])
     threshold_gene_site = len(wass_dist) - SVG_numbers
-    SVGs = wass_dist[threshold_gene_site:, :]
+    SVGs = store_sorted.iloc[threshold_gene_site:, :]
     print(SVG_numbers, SVGs)
     return threshold_gene_site, SVG_numbers, SVGs
 # threshold_gene_site, SVG_numbers = calculate_threshold_gene_site(svg_dist)
